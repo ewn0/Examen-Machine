@@ -13,7 +13,7 @@ public class Program
             return tableau;
         } 
         
-        catch(Exception e)
+        catch(Exception e) //ajout personnel, malgré la non nécessité de le faire.
         {
             Console.WriteLine($"Erreur {e.Message}");
             return [];
@@ -23,7 +23,7 @@ public class Program
     public static void AfficherTableau(double[] tableau)
     {
         Console.WriteLine("Le tableau résultat contient :");
-        foreach (float valeur in tableau) { Console.WriteLine($" {valeur,8:c}"); }
+        foreach (float valeur in tableau) { Console.WriteLine($" {valeur:F2}"); }
     }
 
     public static void Calcul_Harmonique(double[] tableau)
@@ -43,6 +43,6 @@ public class Program
             tab = CreerTableau();
             Calcul_Harmonique(tab);
             AfficherTableau(tab);
-        } catch(Exception e) { Console.WriteLine(e.ToString()); }
+        } catch(Exception e) { Console.WriteLine(e.ToString()); } //ajout personnel, malgré la non nécessité de le faire.
     }
 }
