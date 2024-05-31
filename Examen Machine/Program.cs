@@ -3,13 +3,13 @@ using System.Linq.Expressions;
 
 public class Program
 {
-    public static int[] CreerTableau()
+    public static double[] CreerTableau()
     {
         Console.WriteLine("Saisir le nombre d'éléments harmoniques");
         try
         {
-            int Taille = Convert.ToInt32(Console.ReadLine());
-            int[] tableau = new int[Taille];
+            double Taille = Convert.ToInt32(Console.ReadLine());
+            double[] tableau = new double[(int)Taille];
             return tableau;
         } 
         
@@ -20,30 +20,29 @@ public class Program
         }
         
     }
-    public static void AfficherTableau(int[] tableau)
+    public static void AfficherTableau(double[] tableau)
     {
         Console.WriteLine("Le tableau résultat contient :");
-        foreach (int valeur in tableau) { Console.WriteLine(valeur + " "); }
+        foreach (float valeur in tableau) { Console.WriteLine($" {valeur,8:c}"); }
     }
 
-    public static void Calcul_Harmonique(int[] tableau)
+    public static void Calcul_Harmonique(double[] tableau)
     {
         tableau[0] = 1;
         for(int valeur = 1; valeur < tableau.Length; valeur++)
         {
-            tableau[valeur] = tableau[valeur - 1] + (1/valeur+1);
+            tableau[valeur] = tableau[valeur - 1] + (1/((float)valeur+1));
         }
     }
 
     public static void Main(string[] args)
     {
-        int[] tab;
+        double[] tab;
         try
         {
             tab = CreerTableau();
             Calcul_Harmonique(tab);
             AfficherTableau(tab);
         } catch(Exception e) { Console.WriteLine(e.ToString()); }
-        
     }
 }
